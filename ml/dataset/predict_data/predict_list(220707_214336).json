@@ -1,0 +1,36 @@
+{
+    "food_list": [
+        {
+            "food_num": 0,
+            "food_name": "밀가루"
+        },
+        {
+            "food_num": 1,
+            "food_name": "마요네즈"
+        },
+        {
+            "food_num": 2,
+            "food_name": "고추장"
+        },
+        {
+            "food_num": 3,
+            "food_name": "고추장"
+        },
+        {
+            "food_num": 4,
+            "food_name": "쇠고기"
+        },
+        {
+            "food_num": 5,
+            "food_name": "쇠고기"
+        },
+        {
+            "food_num": 6,
+            "food_name": "밀가루"
+        },
+        {
+            "food_num": 7,
+            "food_name": "쇠고기"
+        }
+    ]
+}

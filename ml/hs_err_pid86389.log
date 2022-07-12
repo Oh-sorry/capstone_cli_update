@@ -1,0 +1,60 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x0000000168f4e43c, pid=86389, tid=25603
+#
+# JRE version: OpenJDK Runtime Environment Zulu15.40+19-CA (15.0.7+4) (build 15.0.7+4-MTS)
+# Java VM: OpenJDK 64-Bit Server VM Zulu15.40+19-CA (15.0.7+4-MTS, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)
+# Problematic frame:
+# V  [libjvm.dylib+0x15243c]  non-virtual thunk to LIRGenerator::block_do(BlockBegin*)+0x0
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azul.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: MacBookAir10,1 arm64 1 MHz, 8 cores, 8G, Darwin 21.4.0
+Time: Wed Jul  6 09:35:16 2022 KST elapsed time: 0.106383 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000137b2e400):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=25603, stack(0x000000017e118000,0x000000017e31b000)]
+
+
+Current CompileTask:
+C1:    106    1       3       java.lang.String::isLatin1 (19 bytes)
+
+Stack: [0x000000017e118000,0x000000017e31b000],  sp=0x000000017e31a380,  free space=2056k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0x15243c]  non-virtual thunk to LIRGenerator::block_do(BlockBegin*)+0x0
+V  [libjvm.dylib+0x113c38]  Compilation::emit_lir()+0xd0
+V  [libjvm.dylib+0x1145fc]  Compilation::compile_java_method()+0x2a0
+V  [libjvm.dylib+0x1148d8]  Compilation::compile_method()+0x124
+V  [libjvm.dylib+0x114d88]  Compilation::Compilation(AbstractCompiler*, ciEnv*, ciMethod*, int, BufferBlob*, DirectiveSet*)+0x1a8
+V  [libjvm.dylib+0x115fe8]  Compiler::compile_method(ciEnv*, ciMethod*, int, DirectiveSet*)+0x58
+V  [libjvm.dylib+0x238408]  CompileBroker::invoke_compiler_on_method(CompileTask*)+0x50c
+V  [libjvm.dylib+0x237e6c]  CompileBroker::compiler_thread_loop()+0x448
+V  [libjvm.dylib+0x8cb660]  JavaThread::thread_main_inner()+0xa0
+V  [libjvm.dylib+0x8c8b5c]  Thread::call_run()+0x88
+V  [libjvm.dylib+0x711b78]  thread_native_entry(Thread*)+0x1d0
+C  [libsystem_pthread.dylib+0x726c]  _pthread_start+0x94
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x0000000168f4e43c
+
+Register to memory mapping:
+
+ x0=0x000000017e31a410 is pointing into the stack for thread: 0x0000000137b2e400
+ x1=0x0000000147938f70 points into unknown readable memory: 0x00000001698607e0 | e0 07 86 69 01 00 00 00
+ x2=0x0000000169923538 is pointing into the stack for thread: 0x0000000147274000
+ x3=0x0 is NULL
+ x4=0x0 is NULL
+ x5=0x0000000147937320 points into unknown readable memory: 0x00000001698607e0 | e0 07 86 69 01 00 00 00
+ x6=0x0000000147937540 points into unknown readable memory: 0x00000001698607e0 | e0 07 86 69 01 00 00 00
+ x7=0x0 is NULL
+ x8=
