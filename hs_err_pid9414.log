@@ -1,0 +1,741 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0xa) at pc=0x00000001775ee5cc, pid=9414, tid=259
+#
+# JRE version:  (15.0.7+4) (build )
+# Java VM: OpenJDK 64-Bit Server VM (15.0.7+4-MTS, mixed mode, tiered, compressed oops, g1 gc, bsd-aarch64)
+# Problematic frame:
+# V  [libjvm.dylib+0xde5cc]  Assembler::br(Assembler::Condition, unsigned char*)+0xd4
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: MacBookAir10,1 arm64 1 MHz, 8 cores, 8G, Darwin 21.4.0
+Time: Mon Sep 12 04:49:59 2022 UTC elapsed time: 0.015070 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000123360800):  JavaThread "Unknown thread" [_thread_in_vm, id=259, stack(0x0000000168e64000,0x000000016ae64000)]
+
+Stack: [0x0000000168e64000,0x000000016ae64000],  sp=0x000000016ae606c0,  free space=32753k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.dylib+0xde5cc]  Assembler::br(Assembler::Condition, unsigned char*)+0xd4
+V  [libjvm.dylib+0x678d5c]  MacroAssembler::generate__ieee754_rem_pio2(unsigned char*, unsigned char*, unsigned char*)+0x1240
+V  [libjvm.dylib+0x67dd6c]  MacroAssembler::generate_dsin_dcos(bool, unsigned char*, unsigned char*, unsigned char*, unsigned char*, unsigned char*)+0x564
+V  [libjvm.dylib+0x84a1e8]  StubGenerator::generate_initial()+0x184
+V  [libjvm.dylib+0x849b58]  StubGenerator_generate(CodeBuffer*, bool)+0x84
+V  [libjvm.dylib+0x878428]  StubRoutines::initialize1()+0xc8
+V  [libjvm.dylib+0x3bf61c]  init_globals()+0x48
+V  [libjvm.dylib+0x8d012c]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x30c
+V  [libjvm.dylib+0x453e00]  JNI_CreateJavaVM+0x78
+C  [_jpype.cpython-39-darwin.so+0x113f8]  JPContext::startJVM(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&, bool, bool, bool)+0xd8
+C  [_jpype.cpython-39-darwin.so+0x3ff18]  PyJPModule_startup(_object*, _object*)+0x304
+C  [python3.9+0xb3e78]  cfunction_call+0xcc
+C  [python3.9+0x5f554]  _PyObject_MakeTpCall+0x15c
+C  [python3.9+0x16ad60]  call_function+0x2d4
+C  [python3.9+0x1677e4]  _PyEval_EvalFrameDefault+0x6f28
+C  [python3.9+0x160274]  _PyEval_EvalCode+0xb98
+C  [python3.9+0x601b0]  _PyFunction_Vectorcall+0xf0
+C  [python3.9+0x16acc8]  call_function+0x23c
+C  [python3.9+0x1678dc]  _PyEval_EvalFrameDefault+0x7020
+C  [python3.9+0x160274]  _PyEval_EvalCode+0xb98
+C  [python3.9+0x601b0]  _PyFunction_Vectorcall+0xf0
+C  [python3.9+0x16acc8]  call_function+0x23c
+C  [python3.9+0x1677e4]  _PyEval_EvalFrameDefault+0x6f28
+C  [python3.9+0x160274]  _PyEval_EvalCode+0xb98
+C  [python3.9+0x601b0]  _PyFunction_Vectorcall+0xf0
+C  [python3.9+0x5f710]  _PyObject_FastCallDictTstate+0x9c
+C  [python3.9+0x6052c]  _PyObject_Call_Prepend+0xa4
+C  [python3.9+0xda458]  slot_tp_init+0x17c
+C  [python3.9+0xe8efc]  type_call+0x158
+C  [python3.9+0x5f554]  _PyObject_MakeTpCall+0x15c
+C  [python3.9+0x16ad60]  call_function+0x2d4
+C  [python3.9+0x1678dc]  _PyEval_EvalFrameDefault+0x7020
+C  [python3.9+0x60230]  function_code_fastcall+0x74
+C  [python3.9+0x16acc8]  call_function+0x23c
+C  [python3.9+0x167860]  _PyEval_EvalFrameDefault+0x6fa4
+C  [python3.9+0x60230]  function_code_fastcall+0x74
+C  [python3.9+0x16acc8]  call_function+0x23c
+C  [python3.9+0x167860]  _PyEval_EvalFrameDefault+0x6fa4
+C  [python3.9+0x60230]  function_code_fastcall+0x74
+C  [python3.9+0x16acc8]  call_function+0x23c
+C  [python3.9+0x167860]  _PyEval_EvalFrameDefault+0x6fa4
+C  [python3.9+0x160274]  _PyEval_EvalCode+0xb98
+C  [python3.9+0x1c308c]  pyrun_file+0x178
+C  [python3.9+0x1c25a0]  PyRun_SimpleFileExFlags+0x330
+C  [python3.9+0x1e5970]  Py_RunMain+0xb60
+C  [python3.9+0x1e6b04]  pymain_main+0x4f8
+C  [python3.9+0x3c94]  main+0x38
+C  0x0000000105505088
+
+
+siginfo: si_signo: 10 (SIGBUS), si_code: 1 (BUS_ADRALN), si_addr: 0x000000028000071c
+
+Registers:
+ x0=0x0000000122ef7c80  x1=0x000000000000000c  x2=0x000000028000071c  x3=0x0000000000002b91
+ x4=0x0000000001008000  x5=0x0000000000000000  x6=0x000000000000001a  x7=0x0000000000000007
+ x8=0x0000000122ef7c80  x9=0x000000005400000c x10=0x000000016ae60db0 x11=0x000000028000071c
+x12=0x0000000001000000 x13=0x0000000001008000 x14=0x0000000000002b91 x15=0x000000002b20e99e
+x16=0x000000002b20e973 x17=0x00000000002b91d3 x18=0x0000000000000000 x19=0x000000000000000c
+x20=0x0000000177e75fd8 x21=0x000000016ae606c0 x22=0x0000000000000000 x23=0x0000000000000021
+x24=0x0000000000000008 x25=0x0000000000000005 x26=0x0000000000000007 x27=0x0000000000000020
+x28=0x0000000000000004  fp=0x000000016ae606f0  lr=0x0000000177b88d5c  sp=0x000000016ae606c0
+pc=0x00000001775ee5cc cpsr=0x0000000080001000
+Top of Stack: (sp=0x000000016ae606c0)
+0x000000016ae606c0:   000000015400000c 0000000122ef7c80
+0x000000016ae606d0:   0000000000000000 0000000000000007
+0x000000016ae606e0:   0000000177e75fd8 0000000122ef7c80
+0x000000016ae606f0:   000000016ae60a50 0000000177b88d5c
+0x000000016ae60700:   000000000000001f 0000000177fa3e48
+0x000000016ae60710:   0000000000000000 000000000000001f
+0x000000016ae60720:   0000000177fcb1c0 0000000177fcb400
+0x000000016ae60730:   ffffffffffffffff 0000000000000004
+0x000000016ae60740:   0000000000000003 0000000000000011
+0x000000016ae60750:   0000000000000004 0000000000000040
+0x000000016ae60760:   0000000000000000 0000000000000002
+0x000000016ae60770:   000000000000000b 0000000000000009
+0x000000016ae60780:   0000000000000008 0000000000000005
+0x000000016ae60790:   0000000000000006 000000000000001a
+0x000000016ae607a0:   0000000000000006 0000000000000021
+0x000000016ae607b0:   0000000000000005 0000000000000020
+0x000000016ae607c0:   0000000000000002 0000000000000003
+0x000000016ae607d0:   0000000000000000 000060000008c300
+0x000000016ae607e0:   0cd81a5a2d4200d5 0000000000000000
+0x000000016ae607f0:   000015b100001651 0000000000000006
+0x000000016ae60800:   0000000000000001 0000000000000000
+0x000000016ae60810:   0000000000000000 00000000ffffffff
+0x000000016ae60820:   0000000000000001 0000000000000000
+0x000000016ae60830:   0000000000000000 0000000280000400
+0x000000016ae60840:   00001761ffffffff 000000016ae608f8
+0x000000016ae60850:   000000016ae60880 0000000000000000
+0x000000016ae60860:   0000000000000000 0000188100001a41
+0x000000016ae60870:   000019b1000018e1 000000006ae60930
+0x000000016ae60880:   0000000000000000 0000000177564400
+0x000000016ae60890:   00001491ffffffff 0000164100001571
+0x000000016ae608a0:   0000000500001721 0000000168e56f90
+0x000000016ae608b0:   0000000000000000 0000184100001891 
+
+Instructions: (pc=0x00000001775ee5cc)
+0x00000001775ee4cc:   aa0803e2 d2800003 52800004 97fffd36
+0x00000001775ee4dc:   f9400688 f9400902 aa1403e0 aa1303e1
+0x00000001775ee4ec:   a9417bfd a8c24ff4 14000001 d10103ff
+0x00000001775ee4fc:   a90157f6 a9024ff4 a9037bfd 9100c3fd
+0x00000001775ee50c:   aa0103f3 f9400408 f9400908 cb080056
+0x00000001775ee51c:   f90007e0 910003f5 f9000c15 52aa8008
+0x00000001775ee52c:   b90003e8 9354fec9 91000529 f100093f
+0x00000001775ee53c:   540001a3 aa0003f4 f00044a0 912bac00
+0x00000001775ee54c:   f00044a2 912f9042 f00044a3 912cfc63
+0x00000001775ee55c:   52801f61 9405ed1b 9418cc13 b94003e8
+0x00000001775ee56c:   f9400e95 531d72c9 121b4929 2a090108
+0x00000001775ee57c:   b90003e8 7100427f 54000143 f00044a0
+0x00000001775ee58c:   912bac00 f00044a2 912c6442 f00044a3
+0x00000001775ee59c:   912cfc63 52801d01 9405ed0a 9418cc02
+0x00000001775ee5ac:   b94002a8 2a130108 b90002a8 f94007e8
+0x00000001775ee5bc:   f9400d09 b9400129 f940050a f940094b
+0x00000001775ee5cc:   b9000169 f9400949 91001129 f9000949
+0x00000001775ee5dc:   f9000d1f a9437bfd a9424ff4 a94157f6
+0x00000001775ee5ec:   910103ff d65f03c0 d10103ff a90157f6
+0x00000001775ee5fc:   a9024ff4 a9037bfd 9100c3fd aa0303f4
+0x00000001775ee60c:   aa0003f3 b9400028 37f801a8 8b940675
+0x00000001775ee61c:   36000074 f94002a8 f8624902 f90007e2
+0x00000001775ee62c:   f9400660 f9400802 9404c720 aa0003e1
+0x00000001775ee63c:   aa1503e0 f94007e2 14000017 f90007e2
+0x00000001775ee64c:   f9400669 f9402528 b940112a b940012b
+0x00000001775ee65c:   4b0b014a 39c10d29 2a0a0922 aa0103e0
+0x00000001775ee66c:   aa0803e1 d2800003 52800004 97fffcce
+0x00000001775ee67c:   8b940660 37000074 f94007e2 14000004
+0x00000001775ee68c:   f9400008 f94007e2 f8624902 f9400668
+0x00000001775ee69c:   f9400901 a9437bfd a9424ff4 a94157f6
+0x00000001775ee6ac:   910103ff d61f0040 d10103ff a90157f6
+0x00000001775ee6bc:   a9024ff4 a9037bfd 9100c3fd aa0403f5 
+
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000000017802e450, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000123360800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=259, stack(0x0000000168e64000,0x000000016ae64000)]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000000000000, size: 0 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (3 events):
+Event: 0.010 Protecting memory [0x0000000168e64000,0x0000000168e70000] with protection modes 0
+Event: 0.012 Loaded shared library /Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/lib/libjava.dylib
+Event: 0.014 Protecting memory [0x0000000168e68000,0x0000000168e70000] with protection modes 3
+
+
+Dynamic libraries:
+0x00000001c8d8b000 	/usr/lib/libSystem.B.dylib
+0x00000001c8d85000 	/usr/lib/system/libcache.dylib
+0x00000001c8d43000 	/usr/lib/system/libcommonCrypto.dylib
+0x00000001c8d6c000 	/usr/lib/system/libcompiler_rt.dylib
+0x00000001c8d63000 	/usr/lib/system/libcopyfile.dylib
+0x00000001bdfcb000 	/usr/lib/system/libcorecrypto.dylib
+0x00000001be07e000 	/usr/lib/system/libdispatch.dylib
+0x00000001be24c000 	/usr/lib/system/libdyld.dylib
+0x00000001c8d7b000 	/usr/lib/system/libkeymgr.dylib
+0x00000001c8d1e000 	/usr/lib/system/libmacho.dylib
+0x00000001c8413000 	/usr/lib/system/libquarantine.dylib
+0x00000001c8d78000 	/usr/lib/system/libremovefile.dylib
+0x00000001c33b4000 	/usr/lib/system/libsystem_asl.dylib
+0x00000001bdf6d000 	/usr/lib/system/libsystem_blocks.dylib
+0x00000001be106000 	/usr/lib/system/libsystem_c.dylib
+0x00000001c8d70000 	/usr/lib/system/libsystem_collections.dylib
+0x00000001c78a1000 	/usr/lib/system/libsystem_configuration.dylib
+0x00000001c6afd000 	/usr/lib/system/libsystem_containermanager.dylib
+0x00000001c8a80000 	/usr/lib/system/libsystem_coreservices.dylib
+0x00000001c0974000 	/usr/lib/system/libsystem_darwin.dylib
+0x00000001c8d7c000 	/usr/lib/system/libsystem_dnssd.dylib
+0x00000001be103000 	/usr/lib/system/libsystem_featureflags.dylib
+0x00000001be261000 	/usr/lib/system/libsystem_info.dylib
+0x00000001c8ce6000 	/usr/lib/system/libsystem_m.dylib
+0x00000001be053000 	/usr/lib/system/libsystem_malloc.dylib
+0x00000001c3343000 	/usr/lib/system/libsystem_networkextension.dylib
+0x00000001c0dcd000 	/usr/lib/system/libsystem_notify.dylib
+0x00000001cf0c9000 	/usr/lib/system/libsystem_product_info_filter.dylib
+0x00000001c78a6000 	/usr/lib/system/libsystem_sandbox.dylib
+0x00000001c8d75000 	/usr/lib/system/libsystem_secinit.dylib
+0x00000001be207000 	/usr/lib/system/libsystem_kernel.dylib
+0x00000001be259000 	/usr/lib/system/libsystem_platform.dylib
+0x00000001be23f000 	/usr/lib/system/libsystem_pthread.dylib
+0x00000001c4b0c000 	/usr/lib/system/libsystem_symptoms.dylib
+0x00000001bdfb1000 	/usr/lib/system/libsystem_trace.dylib
+0x00000001c8d50000 	/usr/lib/system/libunwind.dylib
+0x00000001bdf6f000 	/usr/lib/system/libxpc.dylib
+0x00000001be1ef000 	/usr/lib/libc++abi.dylib
+0x00000001be0c5000 	/usr/lib/libobjc.A.dylib
+0x00000001c8d5b000 	/usr/lib/liboah.dylib
+0x00000001be188000 	/usr/lib/libc++.1.dylib
+0x0000000105784000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_heapq.cpython-39-darwin.so
+0x000000010586c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/math.cpython-39-darwin.so
+0x00000001058a8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_datetime.cpython-39-darwin.so
+0x0000000105884000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_json.cpython-39-darwin.so
+0x0000000105c24000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-darwin.so
+0x0000000106958000 	/Users/jeong-wonmin/miniforge3/lib/libopenblas_vortexp-r0.3.20.dylib
+0x0000000106284000 	/Users/jeong-wonmin/miniforge3/lib/libgfortran.5.dylib
+0x00000001059cc000 	/Users/jeong-wonmin/miniforge3/lib/libomp.dylib
+0x000000010592c000 	/Users/jeong-wonmin/miniforge3/lib/libgcc_s.2.dylib
+0x000000010590c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_struct.cpython-39-darwin.so
+0x0000000105b3c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_pickle.cpython-39-darwin.so
+0x0000000105f5c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/core/_multiarray_tests.cpython-39-darwin.so
+0x0000000105854000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/grp.cpython-39-darwin.so
+0x0000000105898000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_posixsubprocess.cpython-39-darwin.so
+0x0000000105b28000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/select.cpython-39-darwin.so
+0x00000001065ac000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_ctypes.cpython-39-darwin.so
+0x00000001065d0000 	/Users/jeong-wonmin/miniforge3/lib/libffi.8.dylib
+0x000000010739c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/linalg/_umath_linalg.cpython-39-darwin.so
+0x0000000107484000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/fft/_pocketfft_internal.cpython-39-darwin.so
+0x000000010758c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/mtrand.cpython-39-darwin.so
+0x0000000107510000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/bit_generator.cpython-39-darwin.so
+0x0000000107638000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_common.cpython-39-darwin.so
+0x0000000106940000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/binascii.cpython-39-darwin.so
+0x00000001074e0000 	/Users/jeong-wonmin/miniforge3/lib/libz.1.2.12.dylib
+0x0000000107374000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_hashlib.cpython-39-darwin.so
+0x0000000112a28000 	/Users/jeong-wonmin/miniforge3/lib/libcrypto.1.1.dylib
+0x0000000107388000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_blake2.cpython-39-darwin.so
+0x0000000105b14000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_bisect.cpython-39-darwin.so
+0x0000000107500000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_random.cpython-39-darwin.so
+0x000000010768c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_sha512.cpython-39-darwin.so
+0x00000001076fc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_bounded_integers.cpython-39-darwin.so
+0x00000001076c0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_mt19937.cpython-39-darwin.so
+0x0000000107758000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_philox.cpython-39-darwin.so
+0x0000000107778000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_pcg64.cpython-39-darwin.so
+0x00000001076e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_sfc64.cpython-39-darwin.so
+0x00000001128c8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/random/_generator.cpython-39-darwin.so
+0x0000000107678000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_opcode.cpython-39-darwin.so
+0x0000000122800000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/interval.cpython-39-darwin.so
+0x0000000122918000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/hashtable.cpython-39-darwin.so
+0x0000000112c54000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/missing.cpython-39-darwin.so
+0x00000001129d0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/dtypes.cpython-39-darwin.so
+0x0000000112d14000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/conversion.cpython-39-darwin.so
+0x00000001077d8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/base.cpython-39-darwin.so
+0x0000000112d5c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/nattype.cpython-39-darwin.so
+0x00000001129f8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/np_datetime.cpython-39-darwin.so
+0x0000000112d9c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/timezones.cpython-39-darwin.so
+0x0000000112f4c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/tzconversion.cpython-39-darwin.so
+0x0000000112a10000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/ccalendar.cpython-39-darwin.so
+0x0000000122a80000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/parsing.cpython-39-darwin.so
+0x0000000122bec000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/offsets.cpython-39-darwin.so
+0x0000000122b58000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/timedeltas.cpython-39-darwin.so
+0x0000000122aec000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/fields.cpython-39-darwin.so
+0x0000000122d48000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/strptime.cpython-39-darwin.so
+0x0000000136884000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/timestamps.cpython-39-darwin.so
+0x0000000112dd8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/properties.cpython-39-darwin.so
+0x0000000136800000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_decimal.cpython-39-darwin.so
+0x0000000136970000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/period.cpython-39-darwin.so
+0x0000000136908000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslibs/vectorized.cpython-39-darwin.so
+0x0000000112fd8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/ops_dispatch.cpython-39-darwin.so
+0x0000000136b50000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/algos.cpython-39-darwin.so
+0x0000000136a78000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/lib.cpython-39-darwin.so
+0x0000000136940000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/tslib.cpython-39-darwin.so
+0x00000001369d8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/hashing.cpython-39-darwin.so
+0x0000000136d8c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/ops.cpython-39-darwin.so
+0x00000001077ec000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_csv.cpython-39-darwin.so
+0x0000000122b34000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/zlib.cpython-39-darwin.so
+0x00000001076a0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_bz2.cpython-39-darwin.so
+0x0000000136850000 	/Users/jeong-wonmin/miniforge3/lib/libbz2.1.0.8.dylib
+0x0000000122d2c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_lzma.cpython-39-darwin.so
+0x0000000136e84000 	/Users/jeong-wonmin/miniforge3/lib/liblzma.5.dylib
+0x0000000136a48000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/arrays.cpython-39-darwin.so
+0x0000000137050000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/unicodedata.cpython-39-darwin.so
+0x00000001371e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/index.cpython-39-darwin.so
+0x00000001374b4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/join.cpython-39-darwin.so
+0x000000013730c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/sparse.cpython-39-darwin.so
+0x00000001076b0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/reduction.cpython-39-darwin.so
+0x0000000122de8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/indexing.cpython-39-darwin.so
+0x00000001377a4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/internals.cpython-39-darwin.so
+0x00000001371a8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/writers.cpython-39-darwin.so
+0x0000000112ff0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/mmap.cpython-39-darwin.so
+0x0000000137950000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/window/aggregations.cpython-39-darwin.so
+0x00000001372d8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/window/indexers.cpython-39-darwin.so
+0x0000000137a24000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/reshape.cpython-39-darwin.so
+0x0000000137c3c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/groupby.cpython-39-darwin.so
+0x0000000136b18000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_socket.cpython-39-darwin.so
+0x0000000136b38000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/array.cpython-39-darwin.so
+0x0000000137484000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/testing.cpython-39-darwin.so
+0x0000000136870000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/cmath.cpython-39-darwin.so
+0x0000000137dd4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/parsers.cpython-39-darwin.so
+0x00000001379e8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/pandas/_libs/json.cpython-39-darwin.so
+0x0000000137fd0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_ssl.cpython-39-darwin.so
+0x0000000160280000 	/Users/jeong-wonmin/miniforge3/lib/libssl.1.1.dylib
+0x0000000122b48000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_scproxy.cpython-39-darwin.so
+0x00000001bee7d000 	/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x00000001c78ad000 	/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x00000001be28e000 	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x00000001c0cf6000 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x00000001c0341000 	/System/Library/Frameworks/Security.framework/Versions/A/Security
+0x00000001c843e000 	/usr/lib/libbsm.0.dylib
+0x00000001c2400000 	/usr/lib/libnetwork.dylib
+0x00000001c335d000 	/usr/lib/libMobileGestalt.dylib
+0x00000001c8d8d000 	/usr/lib/libfakelink.dylib
+0x00000001c06be000 	/usr/lib/libicucore.A.dylib
+0x00000001c8d91000 	/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+0x00000001c4cef000 	/usr/lib/libDiagnosticMessagesClient.dylib
+0x00000001c335b000 	/usr/lib/libenergytrace.dylib
+0x00000001c8cd4000 	/usr/lib/libz.1.dylib
+0x00000001c8d27000 	/usr/lib/system/libkxld.dylib
+0x00000001bf189000 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x00000001c8051000 	/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+0x00000001c5797000 	/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+0x00000001c902a000 	/usr/lib/libcompression.dylib
+0x00000001c2e8f000 	/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x00000001c4de4000 	/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x00000001c8ed3000 	/usr/lib/libarchive.2.dylib
+0x00000001c57e2000 	/usr/lib/libxml2.2.dylib
+0x00000001cf1f2000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x00000001c78b1000 	/usr/lib/liblangid.dylib
+0x00000001c9617000 	/usr/lib/liblzma.5.dylib
+0x00000001c8ff8000 	/usr/lib/libapple_nghttp2.dylib
+0x00000001c4723000 	/usr/lib/libsqlite3.dylib
+0x000000023d027000 	/usr/lib/libCoreEntitlements.dylib
+0x00000001c8a62000 	/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x00000001c8426000 	/usr/lib/libcoretls.dylib
+0x00000001c9630000 	/usr/lib/libcoretls_cfhelpers.dylib
+0x00000001c9025000 	/usr/lib/libpam.2.dylib
+0x00000001c9699000 	/usr/lib/libxar.1.dylib
+0x00000001c8a73000 	/usr/lib/libbz2.1.0.dylib
+0x00000001c8d92000 	/usr/lib/libpcap.A.dylib
+0x00000001c4b03000 	/usr/lib/libdns_services.dylib
+0x00000001c8dcf000 	/usr/lib/libiconv.2.dylib
+0x00000001c8d1d000 	/usr/lib/libcharset.1.dylib
+0x00000001c5760000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+0x00000001c097f000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x00000001c4d44000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x00000001c8a86000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x00000001c8f59000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x00000001c4a92000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x00000001be7d4000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x00000001c95c0000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x00000001c576d000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+0x00000001c8416000 	/usr/lib/libCheckFix.dylib
+0x00000001c33cc000 	/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x00000001c78b3000 	/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+0x00000001c4cf2000 	/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+0x00000001bef36000 	/usr/lib/libmecabra.dylib
+0x00000001cf48f000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x00000001c844f000 	/usr/lib/libmecab.dylib
+0x00000001bef02000 	/usr/lib/libCRFSuite.dylib
+0x00000001c84ac000 	/usr/lib/libgermantok.dylib
+0x00000001c8fd1000 	/usr/lib/libThaiTokenizer.dylib
+0x00000001c4dec000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x00000001cf1c9000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x00000001c96de000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x00000001c7f58000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x00000001beb5d000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x00000001c90fb000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x00000001c84af000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+0x00000001c9010000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+0x00000001c90f6000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+0x00000001c79ac000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+0x00000001bee1b000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+0x00000001c4cbe000 	/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+0x00000001c79a4000 	/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+0x00000001bedd3000 	/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+0x00000001c96d6000 	/usr/lib/libChineseTokenizer.dylib
+0x00000001bf57a000 	/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+0x00000001c8fd3000 	/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+0x00000001c803e000 	/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+0x00000001c8ec1000 	/usr/lib/libcmph.dylib
+0x00000001c5740000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x00000001c5730000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x00000001c9632000 	/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+0x00000001c8366000 	/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x00000001c96a8000 	/usr/lib/libutil.dylib
+0x00000001c0cb8000 	/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+0x00000001c5794000 	/usr/lib/libapp_launch_measurement.dylib
+0x00000001c96ac000 	/usr/lib/libxslt.1.dylib
+0x00000001c83fa000 	/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+0x00000001c6b1c000 	/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x00000002039dc000 	/System/Library/CoreServices/Encodings/libKoreanConverter.dylib
+0x0000000160394000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/_jpype.cpython-39-darwin.so
+0x0000000137a08000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/_lib/_ccallback_c.cpython-39-darwin.so
+0x0000000160900000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/_sparsetools.cpython-39-darwin.so
+0x000000016051c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/_csparsetools.cpython-39-darwin.so
+0x00000001605f8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_shortest_path.cpython-39-darwin.so
+0x00000001604e8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_tools.cpython-39-darwin.so
+0x0000000160594000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_traversal.cpython-39-darwin.so
+0x00000001605bc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_min_spanning_tree.cpython-39-darwin.so
+0x00000001606e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_flow.cpython-39-darwin.so
+0x0000000160728000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_matching.cpython-39-darwin.so
+0x000000016076c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/csgraph/_reordering.cpython-39-darwin.so
+0x0000000137038000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/__check_build/_check_build.cpython-39-darwin.so
+0x0000000160854000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/.dylibs/libomp.dylib
+0x0000000137d9c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/murmurhash.cpython-39-darwin.so
+0x0000000160e90000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/pyexpat.cpython-39-darwin.so
+0x0000000122bc8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_queue.cpython-39-darwin.so
+0x0000000122bd8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_uuid.cpython-39-darwin.so
+0x0000000136a68000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/lib-dynload/_multiprocessing.cpython-39-darwin.so
+0x00000001616ac000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_ckdtree.cpython-39-darwin.so
+0x000000016184c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_qhull.cpython-39-darwin.so
+0x0000000162d34000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/.dylibs/libopenblas.0.dylib
+0x0000000161c5c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/.dylibs/libgfortran.5.dylib
+0x0000000137c20000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/.dylibs/libgcc_s.2.dylib
+0x0000000137dbc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/_lib/messagestream.cpython-39-darwin.so
+0x00000001611c8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_voronoi.cpython-39-darwin.so
+0x000000016193c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_fblas.cpython-39-darwin.so
+0x0000000161f7c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_flapack.cpython-39-darwin.so
+0x000000016175c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_cythonized_array_utils.cpython-39-darwin.so
+0x0000000160e58000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_flinalg.cpython-39-darwin.so
+0x00000001617fc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_solve_toeplitz.cpython-39-darwin.so
+0x0000000161680000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_matfuncs_sqrtm_triu.cpython-39-darwin.so
+0x0000000161b44000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_decomp_update.cpython-39-darwin.so
+0x0000000161b8c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/cython_blas.cpython-39-darwin.so
+0x0000000162220000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/cython_lapack.cpython-39-darwin.so
+0x000000016082c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_distance_wrap.cpython-39-darwin.so
+0x00000001619d0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_hausdorff.cpython-39-darwin.so
+0x0000000162458000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/_ufuncs.cpython-39-darwin.so
+0x0000000161c10000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/_ufuncs_cxx.cpython-39-darwin.so
+0x00000001622f8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/_specfun.cpython-39-darwin.so
+0x00000001374a4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/_comb.cpython-39-darwin.so
+0x0000000162188000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/_ellip_harm_2.cpython-39-darwin.so
+0x00000001623ec000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/_distance_pybind.cpython-39-darwin.so
+0x0000000162654000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/spatial/transform/_rotation.cpython-39-darwin.so
+0x00000001621e8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/ndimage/_nd_image.cpython-39-darwin.so
+0x00000001626e8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/ndimage/_ni_label.cpython-39-darwin.so
+0x00000001627c4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/linalg/_isolve/_iterative.cpython-39-darwin.so
+0x000000016286c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/linalg/_dsolve/_superlu.cpython-39-darwin.so
+0x0000000162958000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/_arpack.cpython-39-darwin.so
+0x0000000160e78000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_minpack2.cpython-39-darwin.so
+0x00000001617e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_group_columns.cpython-39-darwin.so
+0x00000001629e8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_trlib/_trlib.cpython-39-darwin.so
+0x0000000137794000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/numpy/linalg/lapack_lite.cpython-39-darwin.so
+0x0000000162ae0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_lbfgsb.cpython-39-darwin.so
+0x0000000162b0c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_moduleTNC.cpython-39-darwin.so
+0x0000000162b30000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_cobyla.cpython-39-darwin.so
+0x0000000162b54000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_slsqp.cpython-39-darwin.so
+0x0000000162b78000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_minpack.cpython-39-darwin.so
+0x0000000162be0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_lsq/givens_elimination.cpython-39-darwin.so
+0x0000000137938000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_zeros.cpython-39-darwin.so
+0x0000000161834000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/__nnls.cpython-39-darwin.so
+0x0000000168318000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_highs/_highs_wrapper.cpython-39-darwin.so
+0x0000000160380000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_highs/_highs_constants.cpython-39-darwin.so
+0x0000000168134000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/linalg/_interpolative.cpython-39-darwin.so
+0x0000000162c90000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_bglu_dense.cpython-39-darwin.so
+0x0000000160844000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/optimize/_lsap_module.cpython-39-darwin.so
+0x0000000162d14000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/integrate/_odepack.cpython-39-darwin.so
+0x00000001681c8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/integrate/_quadpack.cpython-39-darwin.so
+0x0000000168228000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/integrate/_vode.cpython-39-darwin.so
+0x00000001681f0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/integrate/_dop.cpython-39-darwin.so
+0x0000000168260000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/integrate/_lsoda.cpython-39-darwin.so
+0x00000001685cc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/_fitpack.cpython-39-darwin.so
+0x000000016866c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/dfitpack.cpython-39-darwin.so
+0x00000001686d0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/_bspl.cpython-39-darwin.so
+0x0000000168718000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/_ppoly.cpython-39-darwin.so
+0x00000001687b8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/interpnd.cpython-39-darwin.so
+0x0000000168874000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/interpolate/_rbfinterp_pythran.cpython-39-darwin.so
+0x000000016895c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_stats.cpython-39-darwin.so
+0x0000000168be0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/special/cython_special.cpython-39-darwin.so
+0x00000001688e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_boost/beta_ufunc.cpython-39-darwin.so
+0x00000001689dc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_boost/binom_ufunc.cpython-39-darwin.so
+0x0000000168a34000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_boost/nbinom_ufunc.cpython-39-darwin.so
+0x0000000168a90000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_boost/hypergeom_ufunc.cpython-39-darwin.so
+0x0000000168590000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_biasedurn.cpython-39-darwin.so
+0x0000000168648000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_hypotests_pythran.cpython-39-darwin.so
+0x00000001623d0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_statlib.cpython-39-darwin.so
+0x0000000168f80000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_mvn.cpython-39-darwin.so
+0x00000001690c8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_sobol.cpython-39-darwin.so
+0x00000001692b8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_qmc_cy.cpython-39-darwin.so
+0x0000000169484000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/scipy/stats/_unuran/unuran_wrapper.cpython-39-darwin.so
+0x0000000161c48000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_openmp_helpers.cpython-39-darwin.so
+0x0000000168848000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/feature_extraction/_hashing_fast.cpython-39-darwin.so
+0x0000000169098000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_vector_sentinel.cpython-39-darwin.so
+0x0000000169430000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_logistic_sigmoid.cpython-39-darwin.so
+0x0000000169678000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/sparsefuncs_fast.cpython-39-darwin.so
+0x000000016971c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/preprocessing/_csr_polynomial_expansion.cpython-39-darwin.so
+0x0000000169858000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/tree/_criterion.cpython-39-darwin.so
+0x0000000169898000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/tree/_splitter.cpython-39-darwin.so
+0x0000000169948000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/tree/_tree.cpython-39-darwin.so
+0x00000001699c0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/neighbors/_ball_tree.cpython-39-darwin.so
+0x0000000169a30000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_dist_metrics.cpython-39-darwin.so
+0x0000000162640000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_typedefs.cpython-39-darwin.so
+0x0000000169a90000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_readonly_array_wrapper.cpython-39-darwin.so
+0x0000000169280000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/metrics/cluster/_expected_mutual_info_fast.cpython-39-darwin.so
+0x0000000169acc000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_pairwise_distances_reduction.cpython-39-darwin.so
+0x0000000169b94000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_cython_blas.cpython-39-darwin.so
+0x0000000162850000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_heap.cpython-39-darwin.so
+0x0000000162ab4000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_sorting.cpython-39-darwin.so
+0x0000000169bf0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/metrics/_pairwise_fast.cpython-39-darwin.so
+0x0000000162ac8000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/neighbors/_partition_nodes.cpython-39-darwin.so
+0x0000000169c98000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/neighbors/_kd_tree.cpython-39-darwin.so
+0x0000000169c30000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/decomposition/_cdnmf_fast.cpython-39-darwin.so
+0x0000000169c64000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_seq_dataset.cpython-39-darwin.so
+0x0000000169658000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_random.cpython-39-darwin.so
+0x0000000169d7c000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/arrayfuncs.cpython-39-darwin.so
+0x0000000176248000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/linear_model/_cd_fast.cpython-39-darwin.so
+0x0000000176480000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/_loss/_loss.cpython-39-darwin.so
+0x00000001762ec000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/linear_model/_sgd_fast.cpython-39-darwin.so
+0x0000000169d44000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/utils/_weight_vector.cpython-39-darwin.so
+0x0000000169e34000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/linear_model/_sag_fast.cpython-39-darwin.so
+0x00000001763c0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/svm/_libsvm.cpython-39-darwin.so
+0x0000000176370000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/svm/_liblinear.cpython-39-darwin.so
+0x0000000176654000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/svm/_libsvm_sparse.cpython-39-darwin.so
+0x0000000168944000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/decomposition/_online_lda_fast.cpython-39-darwin.so
+0x00000001766a0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/neighbors/_quad_tree.cpython-39-darwin.so
+0x00000001766e0000 	/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/sklearn/tree/_utils.cpython-39-darwin.so
+0x0000000168de4000 	/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/bin/java
+0x0000000169460000 	/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/lib/libjli.dylib
+0x00000001d4be2000 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x00000001c0e2e000 	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x00000001c4334000 	/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x00000001c1ce6000 	/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+0x00000001cedc3000 	/System/Library/PrivateFrameworks/RemoteViewServices.framework/Versions/A/RemoteViewServices
+0x00000001c7249000 	/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+0x00000001caac7000 	/System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+0x00000001cab50000 	/System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+0x00000001c9fc2000 	/usr/lib/libspindump.dylib
+0x00000001c1f57000 	/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+0x00000001c6b3a000 	/System/Library/Frameworks/Metal.framework/Versions/A/Metal
+0x00000001c724e000 	/System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+0x00000001c33e8000 	/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+0x00000001c37bd000 	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x00000001c9a39000 	/System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x00000001d2990000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x00000001c7231000 	/System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+0x00000001cb973000 	/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x00000001caad3000 	/System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x00000001e1413000 	/System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+0x00000001c6efd000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x00000001c5170000 	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x00000001cee03000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x00000001c54ea000 	/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x00000001bfc1e000 	/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x00000001ca3cc000 	/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x00000001c5724000 	/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x000000021f6fb000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x00000001c832b000 	/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+0x00000001c3dca000 	/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x00000001c74cd000 	/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x00000001bfa42000 	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x00000001c727e000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x00000001caa23000 	/System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+0x00000001c9752000 	/usr/lib/libate.dylib
+0x00000001ca944000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x00000001ca94d000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x00000001ca8a0000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x00000001ca8c2000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x00000001ca9a8000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x00000001ca2dc000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x00000001c99fe000 	/usr/lib/libexpat.1.dylib
+0x00000001ca297000 	/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+0x00000001c6db9000 	/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+0x00000001c4a37000 	/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+0x00000001d52b5000 	/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+0x00000001ca3c8000 	/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+0x00000001bf67e000 	/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+0x00000001c6ca3000 	/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x00000001c6b30000 	/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+0x00000001c58d0000 	/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x00000001c9023000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+0x00000001ca407000 	/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x00000001c497b000 	/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+0x00000001c4709000 	/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+0x00000001ca93f000 	/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+0x00000001ca91f000 	/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+0x00000001ca947000 	/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+0x000000021f6ee000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+0x0000000229bad000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/31001/Libraries/libGPUCompilerUtils.dylib
+0x00000001ca9ad000 	/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+0x00000001c9faf000 	/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+0x00000001cc230000 	/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+0x00000001bf79e000 	/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+0x00000001c6c7c000 	/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+0x00000001cbb25000 	/usr/lib/libAudioStatistics.dylib
+0x00000001dda7a000 	/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+0x00000001cbd91000 	/usr/lib/libSMC.dylib
+0x00000001d4ac4000 	/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+0x00000001ca86e000 	/usr/lib/libAudioToolboxUtility.dylib
+0x00000001d9b47000 	/System/Library/PrivateFrameworks/OSAServicesClient.framework/Versions/A/OSAServicesClient
+0x00000001cc23d000 	/usr/lib/libperfcheck.dylib
+0x00000001de592000 	/usr/lib/libmis.dylib
+0x000000021f750000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x000000021f70f000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x000000021f8fc000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x000000021f718000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x000000021f70c000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x000000021f6f5000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x00000001c782d000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+0x00000001c89d5000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+0x00000001c84c4000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+0x00000001c88fd000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+0x00000001c86d6000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+0x00000001c892e000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+0x0000000221867000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+0x00000001bea34000 	/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+0x00000001c78ab000 	/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+0x00000001c97e3000 	/usr/lib/libIOReport.dylib
+0x00000001d3ae2000 	/System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing
+0x00000001c9b58000 	/System/Library/PrivateFrameworks/FaceCore.framework/Versions/A/FaceCore
+0x00000001c9b4a000 	/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+0x0000000229ac4000 	/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+0x00000001c9f6b000 	/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+0x00000001c549a000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x00000001c9fb8000 	/System/Library/PrivateFrameworks/FontServices.framework/libhvf.dylib
+0x0000000229ac5000 	/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+0x000000021fa9d000 	/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL
+0x00000001c99b2000 	/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x00000001cbb4d000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x00000001c3ec7000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x00000001ca9b7000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x00000001cbee4000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x00000001cbedc000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+0x00000001cbb39000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x00000001ca978000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+0x00000001cbe71000 	/usr/lib/libcups.2.dylib
+0x00000001cc24b000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x00000001cc25c000 	/System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x00000001cbbbd000 	/usr/lib/libresolv.9.dylib
+0x00000001c9fc7000 	/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x00000001d2d17000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+0x00000001c4b15000 	/System/Library/Frameworks/Network.framework/Versions/A/Network
+0x00000001c9a19000 	/usr/lib/libheimdal-asn1.dylib
+0x00000001cc2ac000 	/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x00000001cbab3000 	/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+0x00000001c9aab000 	/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+0x00000001cb939000 	/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+0x00000001cbef0000 	/System/Library/PrivateFrameworks/AudioResourceArbitration.framework/Versions/A/AudioResourceArbitration
+0x00000001d00a6000 	/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+0x00000001c9a23000 	/System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+0x00000001cedef000 	/System/Library/PrivateFrameworks/SpeechRecognitionCore.framework/Versions/A/SpeechRecognitionCore
+0x0000000177510000 	/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/lib/server/libjvm.dylib
+0x00000001692a4000 	/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/lib/libjimage.dylib
+0x0000000176754000 	/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home/lib/libjava.dylib
+
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+java_command: <unknown>
+java_class_path (initial): /Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/bin:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/scala-library-2.12.3.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/twitter-text-1.14.7.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/komoran-3.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/jhannanum-0.8.4.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/open-korean-text-2.1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/aho-corasick.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/kkma-2.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/shineware-common-1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/snakeyaml-1.12.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/shineware-ds-1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/jhannanum-0.8.4.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/kkma-2.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/aho-corasick.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/shineware-common-1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/shineware-ds-1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/komoran-3.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/snakeyaml-1.12.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/scala-library-2.12.3.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/open-korean-text-2.1.0.jar:/Users/jeong-wonmin/miniforge3/lib/python3.9/site-packages/konlpy/java/twitter-text-1.
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MinHeapSize                              = 6815736                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839564                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909338                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909338                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseNUMA                                  = false                                     {product} {ergonomic}
+     bool UseNUMAInterleaving                      = false                                     {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.13.jdk/Contents/Home/lib/jli
+PATH=/Users/jeong-wonmin/miniforge3/bin:/Users/jeong-wonmin/miniforge3/condabin:/usr/local/Cellar/pyenv-virtualenv/1.1.5/shims:/Users/jeong-wonmin/.pyenv/shims:/usr/local/bin:/Users/jeong-wonmin/.pyenv/bin:/Users/jeong-wonmin/.pyenv/bin:/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/jeong-wonmin/Documents/jwm/캡스톤/flutte:/Users/jeong-wonmin/Library/Android/sdk/emulator:/Users/jeong-wonmin/Library/Android/sdk/tools:/Users/jeong-wonmin/Library/Android/sdk/tools/bin:/Users/jeong-wonmin/Library/Android/sdk/platform-tools:/Library/Java/JavaVirtualMachines/jdk-11.0.13.jdk/Contents/Home/lib/jli/bin:
+SHELL=/bin/zsh
+LC_CTYPE=ko_KR.UTF-8
+TZ=UTC
+
+Signal Handlers:
+SIGSEGV: [libjvm.dylib+0x929b20], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_ONSTACK|SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.dylib+0x929b20], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.dylib+0x929b20], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.dylib+0x713fe0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.dylib+0x713fe0], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.dylib+0x929b20], sa_mask[0]=11111111011111110111111111111111, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.dylib+0x714a14], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: [python3.9+0x23b038], sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:uname: Darwin 21.4.0 Darwin Kernel Version 21.4.0: Mon Feb 21 20:36:53 PST 2022; root:xnu-8020.101.4~2/RELEASE_ARM64_T8101 arm64
+OS uptime: 80 days 18:36 hours
+rlimit (soft/hard): STACK 8176k/65520k , CORE 0k/infinity , NPROC 1333/2000 , NOFILE 10240/infinity , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
+load average: 2.23 1.81 1.61
+
+CPU: total 8 (initial active 8) 0x61:0x0:0x1b588bb3:0, simd, crc, lse
+
+Memory: 16k page, physical 8388608k(83296k free), swap 2097152k(1373184k free)
+
+vm_info: OpenJDK 64-Bit Server VM (15.0.7+4-MTS) for bsd-aarch64 JRE (15.0.7+4-MTS) (Zulu15.40+19-CA), built on Apr 16 2022 08:21:05 by "zulu_re" with clang Apple LLVM 12.0.0 (clang-1200.0.32.28)
+
+END.

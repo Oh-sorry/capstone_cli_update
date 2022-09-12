@@ -11,11 +11,11 @@ class CapstoneappConfig(AppConfig):
 '''
 class ApiConfig(AppConfig):
     name = 'capstoneApp'
-    MODEL_FILE = os.path.join(settings.MODELS, "model0701.pickle")
+    MODEL_FILE = os.path.join(settings.MODELS, "model0704.pickle")
     # model = pickle.load(MODEL_FILE)
-with open(MODEL_FILE, "rb") as f:
+    with open(MODEL_FILE, "rb") as f:
         pl = pickle.load(f)
-    print(pl)
+        print(pl)
 
-    subprocess.run('python ml/predict_0704.py ml/dataset/testdata/*.json', shell=True)
+        subprocess.run('python ml/predict_0704.py ml/dataset/testdata/*.txt', shell=True)
 '''

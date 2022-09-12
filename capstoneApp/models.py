@@ -25,7 +25,8 @@ class item_list(models.Model):
     class Meta:
         db_table = 'item_list'
 
-
+    def __str__(self):
+        return self.item_id_
 #냉장고DB
 class refrigerator_item(models.Model):
     userid = models.ForeignKey('userinfo', on_delete=models.CASCADE, db_column='userid')

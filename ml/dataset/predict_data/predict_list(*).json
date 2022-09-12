@@ -1,8 +1,12 @@
 {
-    "food_list": [
+    "item_list": [
         {
-            "food_num": 0,
-            "food_name": "고추장"
+            "item_id": 0,
+            "item_name": "김치"
+        },
+        {
+            "item_id": 1,
+            "item_name": "쇠고기"
         }
     ]
 }

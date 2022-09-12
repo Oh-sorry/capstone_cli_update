@@ -12,9 +12,11 @@ from ml import predict_0704
 import numpy as np
 import subprocess
 import json
+import pandas as pd
 import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
+import pymysql.cursors
 
 
 def index():
@@ -58,21 +60,57 @@ def signup(request):
 @csrf_exempt
 def textrunning(request):
     if request.method == 'POST':
-        # data = JSONParser().parse(request)
-        data = json.loads(request)
-        path = 'ml/dataset/testdata/testdata.json'
-
-        with open(path, 'w', encoding="UTF-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-
+        conn = pymysql.connect(
+            host="127.0.0.1",
+            port=3306,
+            user="root",
+            password="1234",
+            database="capstoneapi",
+            charset='utf8'
+        )
+        curs = conn.cursor()  # 오브젝트 가져오기
+        # test.json 넣을 시 ~~.json, .txt 변경
+        # subprocess.run('python ml/predict_0704.py ml/dataset/testdata/testdata.txt', shell=True)
         subprocess.run('python ml/predict_0704.py ml/dataset/testdata/testdata.json', shell=True)
 
-        item_list.object.create(item_name='predict_data/predict_list(*).json'["food_name"])
+        pre_data = 'ml/dataset/predict_data/predict_list(*).json'
 
-        serializer = Item_ListSerializer(data=data)
+        with open(pre_data, 'r', encoding="UTF-8") as json_file:
+            db_data = json.load(json_file)
+            # db_line : json 객체를 가지는 Array
+            db_line = db_data['item_list']
+
+            for a in db_line:
+                item_id = a["item_id"]
+                item_name = a['item_name']
+
+                sql = "REPLACE INTO item_list(item_id, item_name) VALUES (%s, %s)"
+                # 똑같은 고유 번호(item_id) 있을 경우 정합 충돌 방지 = replace 사용
+                val = (int(item_id), str(item_name))
+
+                curs.execute(sql, val)
+            conn.commit()
+        print(curs.rowcount, "record inserted")
+
+        # if request.method == 'POST':
+        #     data = JSONParser().parse(request)
+        #     # data = json.loads(request)
+        #     path = 'ml/dataset/testdata/testdata.json'
+        #
+        #     with open(path, 'w', encoding="UTF-8") as f:
+        #         json.dump(data, f, indent=2, ensure_ascii=False)
+        # item_list.object.create(item_name=pre_data["food_name"])
+
+        # df = pd.json_normalize(db_data)
+        #
+        # for idx, row in df.iterrows():
+        #     item_list.objects.create(item_id=row['food_list.food_num'], item_name='김치')
+
+        serializer = Item_ListSerializer(data=db_data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse({'code': '0000', "msg": '보내짐'}, status=200)
+
     else:
         return JsonResponse({"msg": 'connection fail'}, status=500)

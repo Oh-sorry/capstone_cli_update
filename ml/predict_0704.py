@@ -84,11 +84,11 @@ def y_predict_save(y_predict):
     predict_file_path = 'ml/dataset/predict_data/predict_list(*).json'
 
     data = {}
-    data['food_list'] = []
+    data['item_list'] = []
     for i in range(0, len(y_predict)):
-        data['food_list'].append({
-            "food_num" : i,
-            "food_name" : y_predict[i]
+        data['item_list'].append({
+            "item_id" : i,
+            "item_name" : y_predict[i]
         })
 
     with open(predict_file_path, "w", encoding="UTF-8") as f:

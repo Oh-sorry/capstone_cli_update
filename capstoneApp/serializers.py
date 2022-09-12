@@ -11,4 +11,4 @@ class UserinfoSerializer(serializers.ModelSerializer):
 class Item_ListSerializer(serializers.ModelSerializer):
     class Meta:
         model = item_list
-        fields = '__all__'
+        fields = ['item_name']
